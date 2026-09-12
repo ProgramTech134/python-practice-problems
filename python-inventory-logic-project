@@ -1,0 +1,113 @@
+
+secret_pin = 89765 
+attempt = 0 
+total_sales = 0
+total_revenue = 0
+
+while(attempt < 3):
+    pin = int(input("Enter your pin : "))
+    if(pin == secret_pin):
+       print("your pin is right")
+       break
+    else:
+        attempt = attempt + 1
+        print("pin is wrong try again")
+if(attempt == 3):
+    print("system locked")
+    exit()
+laptop = 10 
+phone = 20 
+headphone = 15 
+laptop_price = 1000 
+phone_price = 1500
+headphone_price = 2000
+# stock = laptop + phone + headphone 
+option = int(input("Enter your option 1 to 4 :"))
+while(option != 4):
+
+  if(option == 1):
+     print("Laptop detail")
+     if(laptop == 0):
+      print("out of stock" )
+     elif(laptop <= 5):
+      print("low stock")
+     else:
+      print("in stock")
+      print("laptop :" ,laptop)
+      print("phone detail")
+     if(phone == 0):
+         print("out of stock" )
+     elif(phone <= 5):
+         print("low stock")
+     else:
+        print("in stock")
+        print("phone:" ,phone)
+        print("headphone detail")
+     if(headphone == 0):
+        print("out of stock" )
+     elif(headphone <= 5):
+        print("low stock")
+     else:
+      print("in stock")
+      print("headphone:" ,headphone)  
+
+  elif(option == 2):
+      
+     buy = input("what you want to buy |laptop | phone | headphone :")
+     quantity = int(input("Enter quantity :"))
+     if(buy == "laptop"):
+        if(laptop < quantity):
+           print("stock is not available")
+        elif(laptop >= quantity):
+           laptop = laptop-quantity
+           total_sales = total_sales + 1 
+           bill = laptop_price * quantity 
+           print("Bill :" , bill)
+           total_revenue = total_revenue + bill
+     elif(buy =="phone"):
+           if(phone < quantity):
+             print("stock is not available")
+           elif(phone >= quantity):
+                phone = phone-quantity
+                total_sales = total_sales + 1 
+                bill = phone_price*quantity 
+                print("bill :" , bill)
+                total_revenue = total_revenue + bill           
+     elif(buy == "headphone"):
+           if(headphone < quantity):
+                print("stock is not available")
+           elif(headphone >= quantity):
+                headphone = headphone - quantity 
+                total_sales = total_sales + 1
+                bill = headphone_price * quantity 
+                print("bill :", bill)
+                total_revenue = total_revenue + bill
+           
+     else:
+      print("invalid choice please choose |laptop | phone | headphone ")
+          
+         
+
+  elif(option == 3):
+
+      Add = input("what you want to add in stock |laptop | phone | headphone :")
+      quantity = int(input("Enter quantity :"))
+      if(Add == "laptop"):
+         laptop = laptop + quantity
+         print("laptop quantitiy now :", laptop)
+      elif(Add == "phone"):
+               phone = phone + quantity
+               print("phone quantitiy now :", phone)
+      elif(Add == "headphone"):
+               headphone = headphone + quantity
+               print("headphone quantitiy now :", headphone)
+      else:
+          print(" invalid input ,plz select from |laptop | phone | headphone")
+  else:
+    print("Invalid option! Choose between 1 and 4.")
+  option = int(input("Enter your option 1 to 4 :"))
+  
+ 
+print("Viewing sales report and exiting...")
+print("Total Sales Count:", total_sales)
+print("Total Revenue Earned:", total_revenue)
